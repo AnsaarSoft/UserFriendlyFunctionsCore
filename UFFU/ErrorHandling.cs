@@ -61,7 +61,7 @@ namespace UFFU
             {
                 FileName = prmFileName;
             }
-            FileName = Path.Combine(FilePath, FileName);
+            FullPath = Path.Combine(FilePath, FileName);
             flgLogStatus = prmLogToggle;
             flgEncryption = prmEncrypted;
             if (DateTime.Now.Year > 2025)
