@@ -24,6 +24,7 @@ namespace UFFU
         public enum FormatType { Currency = 1, Number = 2 }
         public enum PrecisionValue { Zero = 1, One = 2, Two = 3, Three = 4, Four = 5, Five = 6, Six = 7 }
         public enum GroupType { Local = 1, International = 2 }
+        public enum LicenseResult { LicenseVerify = 1, LicenseExpired = 2, LicenseFailed= 3, Undefine = 4, MismatchKey =5}
 
 
         #endregion
@@ -270,8 +271,8 @@ namespace UFFU
             {
                 byte[] ByteArrayInput = Encoding.Unicode.GetBytes(pInputString);
                 RijndaelManaged myCipher = new RijndaelManaged();
-                myCipher.BlockSize = 256;
-                myCipher.KeySize = 256;
+                myCipher.BlockSize = 128;
+                myCipher.KeySize = 128;
                 myCipher.Padding = PaddingMode.ISO10126;
                 myCipher.Mode = CipherMode.CBC;
                 // myCipher.Key = Encoding.Unicode.GetBytes("Muhammad Faisal Maqsood")
@@ -279,9 +280,9 @@ namespace UFFU
                 SHA512Managed HashFromPhrase = new SHA512Managed();
                 byte[] BytesFromPhrase = Encoding.Unicode.GetBytes("Muhammad Faisal Maqsood");
                 byte[] BytesFromHashPhrase = HashFromPhrase.ComputeHash(BytesFromPhrase);
-                byte[] ByteKey = new byte[32];
-                byte[] ByteIV = new byte[32];
-                for (int i = 0; i <= 31; i++)
+                byte[] ByteKey = new byte[16];
+                byte[] ByteIV = new byte[16];
+                for (int i = 0; i <= 15; i++)
                 {
                     ByteKey[i] = BytesFromHashPhrase[i];
                     ByteIV[i] = BytesFromHashPhrase[i + 32];
@@ -306,8 +307,8 @@ namespace UFFU
             {
                 byte[] ByteArrayInput = Convert.FromBase64String(pInputString);
                 RijndaelManaged myCipher = new RijndaelManaged();
-                myCipher.KeySize = 256;
-                myCipher.BlockSize = 256;
+                myCipher.KeySize = 128;
+                myCipher.BlockSize = 128;
                 myCipher.Padding = PaddingMode.ISO10126;
                 myCipher.Mode = CipherMode.CBC;
                 // myCipher.Key = Encoding.Unicode.GetBytes("Muhammad Faisal Maqsood")
@@ -315,9 +316,9 @@ namespace UFFU
                 SHA512Managed HashFromPhrase = new SHA512Managed();
                 byte[] BytesFromPhrase = Encoding.Unicode.GetBytes("Muhammad Faisal Maqsood");
                 byte[] BytesFromHashPhrase = HashFromPhrase.ComputeHash(BytesFromPhrase);
-                byte[] ByteKey = new byte[32];
-                byte[] ByteIV = new byte[32];
-                for (int i = 0; i <= 31; i++)
+                byte[] ByteKey = new byte[16];
+                byte[] ByteIV = new byte[16];
+                for (int i = 0; i <= 15; i++)
                 {
                     ByteKey[i] = BytesFromHashPhrase[i];
                     ByteIV[i] = BytesFromHashPhrase[i + 32];
@@ -431,9 +432,9 @@ namespace UFFU
             return retString;
         }
 
-        public static string mfmVerifyLicense(string pHash)
+        public static LicenseResult mfmVerifyLicense(string pHash)
         {
-            string flgReturn = "Verification Failed";
+            LicenseResult Result = LicenseResult.Undefine;
             try
             {
                 string openString = mfmDecryption(pHash);
@@ -448,21 +449,21 @@ namespace UFFU
                     if (localHash == pSID)
                     {
                         if (pFromDate <= DateTime.Now & pToDate >= DateTime.Now)
-                            flgReturn = "Verification Succeded";
+                            Result = LicenseResult.LicenseVerify;
                         else
-                            flgReturn = "License Expired";
+                            Result = LicenseResult.LicenseExpired;
                     }
                     else
-                        flgReturn = "Invalid License: System not valid.";
+                        Result = LicenseResult.MismatchKey;
                 }
                 else
-                    flgReturn = "Invalid License";
+                    Result = LicenseResult.LicenseFailed;
             }
             catch (Exception ex)
             {
-                flgReturn = "Verification Failed";
+                Result = LicenseResult.Undefine;
             }
-            return flgReturn;
+            return Result;
         }
 
         public static string mfmGenerateLicense(string pSID, DateTime pFromDate, DateTime pToDate)

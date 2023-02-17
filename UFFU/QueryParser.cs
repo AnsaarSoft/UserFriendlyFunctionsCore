@@ -124,13 +124,11 @@ namespace UFFU
                         {
                             retValue = "GETDATE()";
                             break;
-                            break;
                         }
 
                     default:
                         {
                             retValue = strValue;
-                            break;
                             break;
                         }
                 }
