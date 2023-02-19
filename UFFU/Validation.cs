@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 
 namespace UFFU
@@ -14,18 +15,17 @@ namespace UFFU
                 if (pType == "32")
                 {
                     Int32 x;
-                    Int32.TryParse(pValue, out x);
+                    x = Int32.Parse(pValue);
                 }
                 if (pType == "16")
                 {
                     Int16 x;
-                    Int16.TryParse(pValue, out x);
-
+                    x = Int16.Parse(pValue);
                 }
                 if (pType == "64")
                 {
                     Int64 x;
-                    Int64.TryParse(pValue, out x);
+                    x = Int64.Parse(pValue);
                 }   
                 retvalue = true;
             }
@@ -41,7 +41,8 @@ namespace UFFU
             bool retvalue = false;
             try
             {
-                decimal testvalue = Convert.ToDecimal(pValue);
+                decimal x = 0;
+                x = decimal.Parse(pValue);
                 retvalue = true;
             }
             catch (Exception ex)
@@ -150,8 +151,8 @@ namespace UFFU
             bool retValue = false;
             try
             {
-                DateTime TempDate;
-                retValue = DateTime.TryParse(pValue, out TempDate);
+                DateTime x;
+                retValue = DateTime.TryParse(pValue, CultureInfo.InvariantCulture, DateTimeStyles.None, out x);
             }
             catch (Exception ex)
             {

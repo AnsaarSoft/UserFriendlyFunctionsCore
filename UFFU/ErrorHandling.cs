@@ -102,7 +102,7 @@ namespace UFFU
             {
                 MailAddress FromAddress = new MailAddress("mfmemailerrorsender@gmail.com", "MFM Error Msg");
                 SmtpClient smtpClient = new SmtpClient();
-                NetworkCredential EmailCredentials = new NetworkCredential(FromAddress.Address, "mfmbahutmushkil");
+                NetworkCredential EmailCredentials = new NetworkCredential(FromAddress.Address, "hlvyzcglujdygiet");
                 MailMessage Message = new MailMessage();
 
                 smtpClient.Host = "smtp.gmail.com";
@@ -160,8 +160,30 @@ namespace UFFU
                 string strMethodName = "";
                 DateTime dtErrorDateTime = DateTime.Now;
                 intErrorAtLine = new StackTrace(pEx, true).GetFrame(0).GetFileLineNumber();
+                string filename = new StackTrace(pEx, true).GetFrame(0).GetFileName();
                 strMethodName = pEx.TargetSite.ToString();
-                strReturn = "Time : " + dtErrorDateTime.ToString("dddd, dd MMM yyyy hh:mm:ss tt") + " : Calling Method : " + strMethodName + " At Line Number : " + intErrorAtLine.ToString() + " Exception Msg : " + pEx.Message;
+                strReturn = @$"Time: {dtErrorDateTime.ToString("dddd, dd MMM yyyy hh:mm:ss tt")} {Environment.NewLine} 
+                               Calling Method: {strMethodName} {Environment.NewLine}
+                               At Line Number: {intErrorAtLine.ToString()} {Environment.NewLine}
+                               Exception Msg: {pEx.Message} {Environment.NewLine}
+                               Stack Trace: {pEx.StackTrace.ToString()} ";
+            }
+            catch (Exception ex)
+            {
+                strReturn = "Exception In Exception : @Time : " + DateTime.Now.ToString("dddd, dd MMM yyyy hh:mm:ss tt") + " ::: " + ex.Message;
+            }
+            return strReturn;
+        }
+
+        private string MessageMail(string message)
+        {
+            string strReturn = "";
+            try
+            {
+                DateTime dtErrorDateTime = DateTime.Now;
+                strReturn = $@"Time: {dtErrorDateTime.ToString("dddd, dd MMM yyyy hh:mm:ss tt")} {Environment.NewLine} 
+                               Message: {message} ";
+
             }
             catch (Exception ex)
             {
@@ -297,9 +319,8 @@ namespace UFFU
             try
             {
                 this.strSubject = prmAppName;
-                // Me.strBody = ExceptionMessageMail(prmMessage)
-                this.strBody = prmMessage;
-
+                this.strBody = MessageMail(prmMessage);
+                
                 Thread oEmail = new Thread(SentMail);
                 oEmail.Start();
             }

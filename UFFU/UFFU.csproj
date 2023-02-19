@@ -4,6 +4,31 @@
     <TargetFramework>netstandard2.1</TargetFramework>
     <Nullable>enable</Nullable>
     <Platforms>AnyCPU;x64</Platforms>
+    <Version>1.0.0.1</Version>
+    <Title>User Functions</Title>
+    <Authors>MFM</Authors>
+    <Company>Ansaar Soft</Company>
+    <Product>User Functions</Product>
+    <Description>Predefine functions for assitance on development. by MFM</Description>
+    <Copyright>MFM ©</Copyright>
+    <AssemblyVersion>1.0.0.1</AssemblyVersion>
+    <FileVersion>1.0.0.1</FileVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>embedded</DebugType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebugType>embedded</DebugType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <DebugType>embedded</DebugType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <DebugType>embedded</DebugType>
   </PropertyGroup>
 
   <ItemGroup>

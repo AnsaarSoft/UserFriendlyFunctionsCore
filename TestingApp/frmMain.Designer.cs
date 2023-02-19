@@ -49,6 +49,17 @@
             this.btngenerate = new Telerik.WinControls.UI.RadButton();
             this.txtlicenseresult = new Telerik.WinControls.UI.RadTextBoxControl();
             this.btnverify = new Telerik.WinControls.UI.RadButton();
+            this.txtInput = new Telerik.WinControls.UI.RadTextBoxControl();
+            this.radLabel5 = new Telerik.WinControls.UI.RadLabel();
+            this.lblOutput = new Telerik.WinControls.UI.RadLabel();
+            this.btnInput = new Telerik.WinControls.UI.RadButton();
+            this.btnnumber = new Telerik.WinControls.UI.RadButton();
+            this.btninteger = new Telerik.WinControls.UI.RadButton();
+            this.btndecimal = new Telerik.WinControls.UI.RadButton();
+            this.btnemail = new Telerik.WinControls.UI.RadButton();
+            this.btndate = new Telerik.WinControls.UI.RadButton();
+            this.radButton3 = new Telerik.WinControls.UI.RadButton();
+            this.radButton4 = new Telerik.WinControls.UI.RadButton();
             ((System.ComponentModel.ISupportInitialize)(this.radButton1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radButton2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
@@ -70,6 +81,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.btngenerate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtlicenseresult)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnverify)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblOutput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnnumber)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btninteger)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btndecimal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnemail)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btndate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radButton3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radButton4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -240,12 +262,118 @@
             this.btnverify.Text = "Verify License";
             this.btnverify.Click += new System.EventHandler(this.btnverify_Click);
             // 
+            // txtInput
+            // 
+            this.txtInput.Location = new System.Drawing.Point(115, 400);
+            this.txtInput.Name = "txtInput";
+            this.txtInput.Size = new System.Drawing.Size(292, 22);
+            this.txtInput.TabIndex = 22;
+            // 
+            // radLabel5
+            // 
+            this.radLabel5.Location = new System.Drawing.Point(47, 404);
+            this.radLabel5.Name = "radLabel5";
+            this.radLabel5.Size = new System.Drawing.Size(64, 18);
+            this.radLabel5.TabIndex = 21;
+            this.radLabel5.Text = "Verify Input";
+            // 
+            // lblOutput
+            // 
+            this.lblOutput.Location = new System.Drawing.Point(423, 404);
+            this.lblOutput.Name = "lblOutput";
+            this.lblOutput.Size = new System.Drawing.Size(14, 18);
+            this.lblOutput.TabIndex = 23;
+            this.lblOutput.Text = "...";
+            // 
+            // btnInput
+            // 
+            this.btnInput.Location = new System.Drawing.Point(115, 428);
+            this.btnInput.Name = "btnInput";
+            this.btnInput.Size = new System.Drawing.Size(110, 24);
+            this.btnInput.TabIndex = 24;
+            this.btnInput.Text = "Check Alphabet";
+            this.btnInput.Click += new System.EventHandler(this.btnInput_Click);
+            // 
+            // btnnumber
+            // 
+            this.btnnumber.Location = new System.Drawing.Point(231, 428);
+            this.btnnumber.Name = "btnnumber";
+            this.btnnumber.Size = new System.Drawing.Size(110, 24);
+            this.btnnumber.TabIndex = 25;
+            this.btnnumber.Text = "Check Number";
+            this.btnnumber.Click += new System.EventHandler(this.btnnumber_Click);
+            // 
+            // btninteger
+            // 
+            this.btninteger.Location = new System.Drawing.Point(347, 428);
+            this.btninteger.Name = "btninteger";
+            this.btninteger.Size = new System.Drawing.Size(110, 24);
+            this.btninteger.TabIndex = 26;
+            this.btninteger.Text = "Check Integer";
+            this.btninteger.Click += new System.EventHandler(this.btninteger_Click);
+            // 
+            // btndecimal
+            // 
+            this.btndecimal.Location = new System.Drawing.Point(463, 428);
+            this.btndecimal.Name = "btndecimal";
+            this.btndecimal.Size = new System.Drawing.Size(110, 24);
+            this.btndecimal.TabIndex = 27;
+            this.btndecimal.Text = "Check Decimal";
+            this.btndecimal.Click += new System.EventHandler(this.btndecimal_Click);
+            // 
+            // btnemail
+            // 
+            this.btnemail.Location = new System.Drawing.Point(579, 428);
+            this.btnemail.Name = "btnemail";
+            this.btnemail.Size = new System.Drawing.Size(110, 24);
+            this.btnemail.TabIndex = 28;
+            this.btnemail.Text = "Check Email";
+            this.btnemail.Click += new System.EventHandler(this.btnemail_Click);
+            // 
+            // btndate
+            // 
+            this.btndate.Location = new System.Drawing.Point(115, 458);
+            this.btndate.Name = "btndate";
+            this.btndate.Size = new System.Drawing.Size(110, 24);
+            this.btndate.TabIndex = 29;
+            this.btndate.Text = "Check Date";
+            this.btndate.Click += new System.EventHandler(this.btndate_Click);
+            // 
+            // radButton3
+            // 
+            this.radButton3.Location = new System.Drawing.Point(231, 72);
+            this.radButton3.Name = "radButton3";
+            this.radButton3.Size = new System.Drawing.Size(110, 24);
+            this.radButton3.TabIndex = 30;
+            this.radButton3.Text = "Email Log";
+            this.radButton3.Click += new System.EventHandler(this.radButton3_Click);
+            // 
+            // radButton4
+            // 
+            this.radButton4.Location = new System.Drawing.Point(231, 102);
+            this.radButton4.Name = "radButton4";
+            this.radButton4.Size = new System.Drawing.Size(110, 24);
+            this.radButton4.TabIndex = 31;
+            this.radButton4.Text = "Email Exception";
+            this.radButton4.Click += new System.EventHandler(this.radButton4_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(7, 15);
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(727, 579);
+            this.Controls.Add(this.radButton4);
+            this.Controls.Add(this.radButton3);
+            this.Controls.Add(this.btndate);
+            this.Controls.Add(this.btnemail);
+            this.Controls.Add(this.btndecimal);
+            this.Controls.Add(this.btninteger);
+            this.Controls.Add(this.btnnumber);
+            this.Controls.Add(this.btnInput);
+            this.Controls.Add(this.lblOutput);
+            this.Controls.Add(this.txtInput);
+            this.Controls.Add(this.radLabel5);
             this.Controls.Add(this.txtlicenseresult);
             this.Controls.Add(this.btnverify);
             this.Controls.Add(this.txtlicense);
@@ -273,6 +401,7 @@
             // 
             // 
             this.RootElement.ApplyShapeToControl = true;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Testing UFFU";
             ((System.ComponentModel.ISupportInitialize)(this.radButton1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radButton2)).EndInit();
@@ -295,6 +424,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.btngenerate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtlicenseresult)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnverify)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblOutput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnnumber)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btninteger)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btndecimal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnemail)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btndate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radButton3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radButton4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -324,5 +464,16 @@
         private Telerik.WinControls.UI.RadButton btngenerate;
         private Telerik.WinControls.UI.RadTextBoxControl txtlicenseresult;
         private Telerik.WinControls.UI.RadButton btnverify;
+        private Telerik.WinControls.UI.RadTextBoxControl txtInput;
+        private Telerik.WinControls.UI.RadLabel radLabel5;
+        private Telerik.WinControls.UI.RadLabel lblOutput;
+        private Telerik.WinControls.UI.RadButton btnInput;
+        private Telerik.WinControls.UI.RadButton btnnumber;
+        private Telerik.WinControls.UI.RadButton btninteger;
+        private Telerik.WinControls.UI.RadButton btndecimal;
+        private Telerik.WinControls.UI.RadButton btnemail;
+        private Telerik.WinControls.UI.RadButton btndate;
+        private Telerik.WinControls.UI.RadButton radButton3;
+        private Telerik.WinControls.UI.RadButton radButton4;
     }
 }
